@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import UserInfo from "../components/UserInfo.astro";
+import Search from "../components/Search.astro";
+---
+
+<Layout>
+    <div class="employee-init">
+        <Search />
+        <img src="images/Vector.svg" alt="icon" class="vector-icon" />
+        <UserInfo />
+    </div>
+</Layout>
+
+<style>
+    .vector-icon {
+        background: var(--global-color-primary3);
+        padding: 5px 8px;
+        border-radius: 8px;
+        position: absolute;
+        top: 25%;
+        left: 2%;
+    }
+
+    .employee-init {
+        display: grid;
+    }
+</style>
