@@ -1,5 +1,5 @@
 ---
-const data = await fetch('http://localhost:8080/teamLead.json').then(
+const data = await fetch(`${import.meta.env.PUBLIC_API}teamLead.json`).then(
     (response) => response.json()
 );
 ---
@@ -12,7 +12,7 @@ const data = await fetch('http://localhost:8080/teamLead.json').then(
                     <img class="team-lead-img" src="images/p1.svg" alt="" />
                     <div class="team-lead-des">
                         <h1>{item.name}</h1>
-                        <p>HOD, Full Stack Developer</p>
+                        <p>HOD, {item.designation}</p>
                     </div>
                 </div>
             );
