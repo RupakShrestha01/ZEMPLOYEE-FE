@@ -1,0 +1,184 @@
+.search {
+  background: var(--global-color-primary3);
+  padding: 20px 35px;
+  border-radius: 15px;
+  margin-right: 15px;
+  margin-left: 15px;
+  margin-top: 25px;
+}
+
+.employee {
+  width: 480px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  padding: 0px 10px;
+}
+.Employee-wrapper {
+  position: relative;
+  bottom: 25%;
+}
+
+.department {
+  width: 480px;
+  height: 35px;
+  border-radius: 10px;
+  padding: 0px 10px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0 15%;
+}
+
+.submit-btn {
+  width: 155px;
+  height: 35px;
+  background: var(--global-color-primary);
+  border-radius: 10px;
+  border: none;
+}
+
+.emp-detail {
+  background: var(--global-color-primary3);
+  font-style: normal;
+  line-height: 39px;
+  /* identical to box height */
+  margin: 80px 15px;
+  padding: 50px 85px;
+  height: 650px;
+  letter-spacing: 0.05em;
+  border-radius: 15px;
+
+  /* Primary 1 */
+  color: var(--global-color-primary);
+}
+
+.Employee-Flex {
+  display: flex;
+  margin-top: 30px;
+  gap: 40%;
+}
+
+.Sub-employee {
+  display: grid;
+  grid: auto / auto auto auto;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-top: 30px;
+  padding-bottom: 50px;
+}
+.Sub-employee-item {
+  display: flex;
+  flex: 0 28%;
+  justify-content: start;
+  gap: 15px;
+}
+
+.Sub-employee-item-detail {
+  display: grid;
+  line-height: 2px;
+}
+
+.Employee-Flex-heading {
+  background: var(--global-color-primary);
+  color: #1b262c;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+.Employee-Flex-cheading {
+  background: var(--global-color-primary);
+  color: #1b262c;
+  padding: 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  width: 150px;
+  justify-content: center;
+
+  border-radius: 10px;
+}
+
+.Employee-Flex-gender {
+  padding: 0;
+  margin: 0;
+}
+
+.Employee-Flex-dob {
+  padding: 0;
+  margin: 0;
+}
+.Employee-Flex-country {
+  padding: 0;
+  margin: 0;
+}
+
+.Employee-Flex-detail {
+  margin-top: 18px;
+  line-height: 28px;
+}
+
+.Sub-employee-heading {
+  background: var(--global-color-primary);
+  color: #1b262c;
+  margin-top: 30px;
+  padding: 0;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  width: 135px;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.Employee-Flex-number {
+  padding: 0;
+  margin: 0;
+}
+
+.Employee-Flex-email {
+  padding: 0;
+  margin: 0;
+}
+.Employee-Flex-address {
+  padding: 0;
+  margin: 0;
+}
+
+.emp-info-name {
+  padding: 0;
+  margin: 0;
+}
+.emp-info-post {
+  padding: 0;
+  margin: 0;
+}
+
+.current-emp {
+  position: relative;
+  left: 80%;
+  bottom: 25%;
+}
+
+.Sub-employee-item-detail-name {
+  font-weight: 400;
+  font-size: 20px;
+}
+.Sub-employee-item-detail-post {
+  font-weight: 400;
+  font-size: 12px;
+}
+.emp-img {
+  width: 65px;
+}
