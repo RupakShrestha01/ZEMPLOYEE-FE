@@ -1,60 +1,23 @@
+---
+const data = await fetch('http://localhost:8080/teamLead.json').then(
+    (response) => response.json()
+);
+---
+
 <div class="team-lead-container">
-    <div class="team-lead">
-        <img class="team-lead-img" src="images/p1.svg" alt="" />
-        <div class="team-lead-des">
-            <h1>Suman Rana</h1>
-            <p>HOD, Full Stack Developer</p>
-        </div>
-    </div>
-    <div class="team-lead">
-        <img class="team-lead-img" src="images/p1.svg" alt="" />
-        <div class="team-lead-des">
-            <h1>Suman Rana</h1>
-            <p>HOD, Full Stack Developer</p>
-        </div>
-    </div>
-    <div class="team-lead">
-        <img class="team-lead-img" src="images/p1.svg" alt="" />
-        <div class="team-lead-des">
-            <h1>Suman Rana</h1>
-            <p>HOD, Full Stack Developer</p>
-        </div>
-    </div>
-    <div class="team-lead">
-        <img class="team-lead-img" src="images/p1.svg" alt="" />
-        <div class="team-lead-des">
-            <h1>Suman Rana</h1>
-            <p>HOD, Full Stack Developer</p>
-        </div>
-    </div>
-    <div class="team-lead">
-        <img class="team-lead-img" src="images/p1.svg" alt="" />
-        <div class="team-lead-des">
-            <h1>Suman Rana</h1>
-            <p>HOD, Full Stack Developer</p>
-        </div>
-    </div>
-    <div class="team-lead">
-        <img class="team-lead-img" src="images/p1.svg" alt="" />
-        <div class="team-lead-des">
-            <h1>Suman Rana</h1>
-            <p>HOD, Full Stack Developer</p>
-        </div>
-    </div>
-    <div class="team-lead">
-        <img class="team-lead-img" src="images/p1.svg" alt="" />
-        <div class="team-lead-des">
-            <h1>Suman Rana</h1>
-            <p>HOD, Full Stack Developer</p>
-        </div>
-    </div>
-    <div class="team-lead">
-        <img class="team-lead-img" src="images/p1.svg" alt="" />
-        <div class="team-lead-des">
-            <h1>Suman Rana</h1>
-            <p>HOD, Full Stack Developer</p>
-        </div>
-    </div>
+    {
+        data.map((item) => {
+            return (
+                <div class="team-lead">
+                    <img class="team-lead-img" src="images/p1.svg" alt="" />
+                    <div class="team-lead-des">
+                        <h1>{item.name}</h1>
+                        <p>HOD, Full Stack Developer</p>
+                    </div>
+                </div>
+            );
+        })
+    }
 </div>
 
 <style>
@@ -63,9 +26,9 @@
         grid: auto / 290px 290px 290px 290px;
         justify-content: space-between;
         align-items: center;
-        margin: 80px 10px;
+        margin: 80px 15px;
         gap: 55px 0;
-        margin-top: 30px;
+        margin-top: 90px;
         padding-bottom: 50px;
     }
     .team-lead {
@@ -96,6 +59,7 @@
         position: relative;
         font-family: var(--global-font-family);
         display: flex;
+        width: 100%;
         justify-content: center;
         font-style: normal;
         font-weight: 400;
