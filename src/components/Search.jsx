@@ -57,7 +57,7 @@ export const Search = () => {
             <p className="emp-info-post">{item.designation}</p>
           </div>
           <img src="images/p1.svg" alt="background" className="current-emp" />
-          <div className='Employee-wrapper'> 
+          <div className="Employee-wrapper">
             <div className="Employee-Flex">
               <div>
                 <h2 className="Employee-Flex-heading">Emplopyee Details</h2>
