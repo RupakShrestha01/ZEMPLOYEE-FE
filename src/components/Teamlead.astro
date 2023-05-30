@@ -82,4 +82,17 @@ const data = await fetch(`${import.meta.env.PUBLIC_API}teamLead.json`).then(
         color: #0f4c75;
         letter-spacing: 0.03em;
     }
+
+    @media only screen and (max-width: 800px) {
+        .team-lead-container {
+            display: grid;
+            grid: auto / 290px 290px;
+            justify-content: space-between;
+            align-items: center;
+            margin: 80px 15px;
+            gap: 55px 0;
+            margin-top: 90px;
+            padding-bottom: 50px;
+        }
+    }
 </style>
