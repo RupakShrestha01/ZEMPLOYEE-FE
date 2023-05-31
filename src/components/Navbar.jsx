@@ -2,7 +2,7 @@ import '../styles/navbar.css';
 
 import { useState } from 'react';
 
-const Navbar = (props) => {
+const Navbar = () => {
   const [showNavbar, setShowNavbar] = useState(false);
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
