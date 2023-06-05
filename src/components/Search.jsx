@@ -1,37 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/search.css';
 import { useState } from 'react';
+import axios from 'axios';
 export const Search = () => {
   const [employee, setEmployee] = useState('');
   const [department, setDepartment] = useState('');
   const [jsonData, setJsonData] = useState([]);
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    // Make fetch request here
-    fetch(`http://localhost:8080/employee/search?query=${employee}`, {
-      method: 'GET',
-      mode: 'cors',
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setJsonData(data);
-      })
-      .catch((error) => {
-        // Handle any errors
-        console.error(error);
-      });
-  };
+  const departData = sessionStorage.getItem('department');
+  const departResult = JSON.parse(departData);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get(
+        `http://localhost:8080/employee/search?employee=${employee}`
+      );
+      setJsonData(res.data);
+      console.log(res.data);
+    };
+    fetchData();
+  }, [employee]);
 
   return (
     <>
       <div className="search">
-        <form className="search-form" onSubmit={handleSubmit}>
+        <form className="search-form">
           <input
             type="text"
             className="employee"
             value={employee}
-            onChange={(e) => setEmployee(e.target.value)}
+            onChange={(e) => setEmployee(e.target.value.toLowerCase())}
             placeholder="Employee name"
           />
           <select
@@ -39,17 +36,18 @@ export const Search = () => {
             onChange={(e) => setDepartment(e.target.value)}
             className="department"
           >
-            <option value="volvo">Department</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+            {departResult.map((item) => (
+              <option key={item.id} value={item.departName}>
+                {item.departName}
+              </option>
+            ))}
           </select>
           <input type="submit" className="submit-btn" />
         </form>
       </div>
 
       {jsonData.map((item) => (
-        <div className="emp-detail">
+        <div className="emp-detail" key={item.id}>
           <div className="emp-info">
             <h1 className="emp-info-name">
               {item.firstName} {item.lastName}
