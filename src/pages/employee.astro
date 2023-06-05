@@ -7,7 +7,7 @@ import Search from '../components/Search.jsx';
 
 <Layout>
     <div class="employee-init">
-        <Search client:idle />
+        <Search client:only />
         <img src="images/Vector.svg" alt="icon" class="vector-icon" />
         <Teamlead />
     </div>
@@ -19,7 +19,7 @@ import Search from '../components/Search.jsx';
         padding: 5px 8px;
         border-radius: 8px;
         position: absolute;
-        top: 25%;
+        top: 23%;
         left: 2%;
     }
 
@@ -38,3 +38,17 @@ import Search from '../components/Search.jsx';
         }
     }
 </style>
+
+<script>
+    import axios from 'axios';
+
+    const res = await axios.get(`${import.meta.env.PUBLIC_API}department.json`);
+    const department = res.data;
+
+    const employeeRes = await axios.get(
+        `${import.meta.env.PUBLIC_API}employee.json`
+    );
+    const employee = employeeRes.data;
+    sessionStorage.setItem('department', JSON.stringify(department));
+    sessionStorage.setItem('employee', JSON.stringify(employee));
+</script>

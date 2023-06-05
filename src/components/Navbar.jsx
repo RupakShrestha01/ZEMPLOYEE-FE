@@ -28,16 +28,16 @@ const Navbar = () => {
               <a href="/employee">Employee</a>
             </li>
             <li className="user-state">
-              <a href="" className='userprofile-link'>
+              <a href="" className="userprofile-link">
                 <img
                   src="images/userprofile.svg"
                   alt="Logo"
-                  class="userprofile"
+                  className="userprofile"
                 />
               </a>
-              <div className='user-state-btn'>
-              <button className="login">Login</button>
-              <button className="logout">Signup</button>
+              <div className="user-state-btn">
+                <button className="login">Login</button>
+                <button className="logout">Signup</button>
               </div>
             </li>
           </ul>
