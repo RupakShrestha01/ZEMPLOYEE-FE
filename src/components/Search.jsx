@@ -9,6 +9,9 @@ export const Search = () => {
 
   const departData = sessionStorage.getItem('department');
   const departResult = JSON.parse(departData);
+
+  const empData = sessionStorage.getItem('employee');
+  const empResult = JSON.parse(empData);
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios.get(
