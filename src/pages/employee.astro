@@ -1,15 +1,15 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from '../layouts/Layout.astro';
 
-import UserInfo from "../components/UserInfo.astro";
-import Search from "../components/Search.astro";
+import Teamlead from '../components/Teamlead.astro';
+import Search from '../components/Search.jsx';
 ---
 
 <Layout>
     <div class="employee-init">
-        <Search />
+        <Search client:only="react" />
         <img src="images/Vector.svg" alt="icon" class="vector-icon" />
-        <UserInfo />
+        <Teamlead />
     </div>
 </Layout>
 
@@ -19,11 +19,43 @@ import Search from "../components/Search.astro";
         padding: 5px 8px;
         border-radius: 8px;
         position: absolute;
-        top: 25%;
+        top: 23%;
         left: 2%;
     }
 
     .employee-init {
         display: grid;
     }
+
+    @media only screen and (max-width: 800px) {
+        .vector-icon {
+            background: var(--global-color-primary3);
+            padding: 5px 8px;
+            border-radius: 8px;
+            position: absolute;
+            top: 12%;
+            left: 3%;
+        }
+    }
 </style>
+
+<script>
+    import axios from 'axios';
+
+    const res = await axios.get(`${import.meta.env.PUBLIC_API}department.json`);
+    const department = res.data;
+
+    const employeeRes = await axios.get(
+        `${import.meta.env.PUBLIC_API}employee.json`
+    );
+    const employee = employeeRes.data;
+
+    const teamleadRes = await axios.get(
+        `${import.meta.env.PUBLIC_API}teamLead/ListAll`
+    );
+    const teamlead = teamleadRes.data;
+
+    localStorage.setItem('department', JSON.stringify(department));
+    localStorage.setItem('employee', JSON.stringify(employee));
+    localStorage.setItem('teamlead', JSON.stringify(teamlead));
+</script>
