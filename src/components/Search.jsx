@@ -1,25 +1,32 @@
 import React, { useEffect } from 'react';
 import '../styles/search.css';
 import { useState } from 'react';
-import axios from 'axios';
 export const Search = () => {
   const [employee, setEmployee] = useState('');
   const [department, setDepartment] = useState('');
   const [jsonData, setJsonData] = useState([]);
 
-  const departData = sessionStorage.getItem('department');
+  const departData = localStorage.getItem('department');
   const departResult = JSON.parse(departData);
 
-  const empData = sessionStorage.getItem('employee');
+  const empData = localStorage.getItem('employee');
   const empResult = JSON.parse(empData);
+  const handleItemClick = () => {
+    setEmployee('Rupak');
+  };
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get(
-        `http://localhost:8080/employee/search?employee=${employee}`
+      if (!employee) {
+        setJsonData([]); // No employee input, set empty array
+        return;
+      }
+      const filteredData = empResult.filter((obj) =>
+        obj.firstName.includes(employee)
       );
-      setJsonData(res.data);
-      console.log(res.data);
+      setJsonData(filteredData);
+      return;
     };
+
     fetchData();
   }, [employee]);
 
@@ -27,25 +34,24 @@ export const Search = () => {
     <>
       <div className="search">
         <form className="search-form">
-          <input
-            type="text"
-            className="employee"
-            value={employee}
-            onChange={(e) => setEmployee(e.target.value.toLowerCase())}
-            placeholder="Employee name"
-          />
           <select
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
             className="department"
           >
             {departResult.map((item) => (
-              <option key={item.id} value={item.departName}>
-                {item.departName}
+              <option key={item.id} value={item.name}>
+                {item.name}
               </option>
             ))}
           </select>
-          <input type="submit" className="submit-btn" />
+          <input
+            type="text"
+            className="employee"
+            value={employee}
+            onChange={(e) => setEmployee(e.target.value)}
+            placeholder="Employee name"
+          />
         </form>
       </div>
 
@@ -90,7 +96,7 @@ export const Search = () => {
             <h2 className="Sub-employee-heading">Subordinate</h2>
 
             <div className="Sub-employee">
-              <div className="Sub-employee-item">
+              <div className="Sub-employee-item" onClick={handleItemClick}>
                 <img src="images/p2.svg" alt="background" className="emp-img" />
                 <div className="Sub-employee-item-detail">
                   <h2 className="Sub-employee-item-detail-name">Anil Regmi</h2>
