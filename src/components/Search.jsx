@@ -36,7 +36,7 @@ export const Search = () => {
     };
 
     fetchData();
-  }, [employee, department, empResult]);
+  }, [employee, department]);
 
   return (
     <>
