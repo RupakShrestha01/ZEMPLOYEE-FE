@@ -1,15 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-import Teamlead from '../components/Teamlead.astro';
 import Search from '../components/Search.jsx';
 ---
 
 <Layout>
     <div class="employee-init">
         <Search client:only="react" />
-        <img src="images/Vector.svg" alt="icon" class="vector-icon" />
-        <Teamlead />
+        <a href="/">
+            <img src="images/Vector.svg" alt="icon" class="vector-icon" />
+        </a>
     </div>
 </Layout>
 
@@ -19,8 +19,8 @@ import Search from '../components/Search.jsx';
         padding: 5px 8px;
         border-radius: 8px;
         position: absolute;
-        top: 23%;
-        left: 2%;
+        top: 25%;
+        left: 6.5%;
     }
 
     .employee-init {
@@ -34,7 +34,7 @@ import Search from '../components/Search.jsx';
             border-radius: 8px;
             position: absolute;
             top: 12%;
-            left: 3%;
+            left: 8.5%;
         }
     }
 </style>
@@ -46,7 +46,7 @@ import Search from '../components/Search.jsx';
     const department = res.data;
 
     const employeeRes = await axios.get(
-        `${import.meta.env.PUBLIC_API}employee.json`
+        `${import.meta.env.PUBLIC_API}employee/ListAll`
     );
     const employee = employeeRes.data;
 
